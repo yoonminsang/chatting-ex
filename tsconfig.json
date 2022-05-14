@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "references": [
+    //   {
+    //     "path": "packages/client"
+    //   },
+    {
+      "path": "packages/server"
+    }
+    //   {
+    //     "path": "packages/common-const"
+    //   },
+    //   {
+    //     "path": "packages/common-types"
+    //   },
+  ],
+  "exclude": ["packages/**/dist/**"],
+  "include": []
+}
