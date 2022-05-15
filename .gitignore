@@ -8,7 +8,7 @@
 !.yarn/versions
 
 # compiled output
-/dist
+dist
 
 # Logs
 logs
