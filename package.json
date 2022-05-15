@@ -5,15 +5,24 @@
     "packages/*"
   ],
   "scripts": {
+    "lint": "yarn server lint",
+    "lint:fix": "yarn server lint:fix",
     "client": "yarn workspace client",
     "server": "yarn workspace server",
     "common-const": "yarn workspace @common/const",
     "common-types": "yarn workspace @common/types",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn lint"
+    ]
   },
   "devDependencies": {
     "eslint": "8.2.0",
     "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4"
