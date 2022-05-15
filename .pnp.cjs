@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["eslint", "npm:8.2.0"],\
+            ["husky", "npm:8.0.1"],\
             ["prettier", "npm:2.6.2"],\
             ["ts-node", "virtual:ad6c423de46ce036f9f673e14f678a109897ef624f67ffbae2cbecbd75ffb5781e458e90d0c6d12a4b8c218c5b52afa87bb97665fb3e10ca504cdc2352852ca2#npm:10.7.0"],\
             ["typescript", "patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=7ad353"]\
@@ -3198,6 +3199,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["chatting-ex", "workspace:."],\
             ["eslint", "npm:8.2.0"],\
+            ["husky", "npm:8.0.1"],\
             ["prettier", "npm:2.6.2"],\
             ["ts-node", "virtual:ad6c423de46ce036f9f673e14f678a109897ef624f67ffbae2cbecbd75ffb5781e458e90d0c6d12a4b8c218c5b52afa87bb97665fb3e10ca504cdc2352852ca2#npm:10.7.0"],\
             ["typescript", "patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=7ad353"]\
@@ -5282,6 +5284,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["humanize-ms", "npm:1.2.1"],\
             ["ms", "npm:2.1.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["husky", [\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/husky-npm-8.0.1-85fede8470-943a73a13d.zip/node_modules/husky/",\
+          "packageDependencies": [\
+            ["husky", "npm:8.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
