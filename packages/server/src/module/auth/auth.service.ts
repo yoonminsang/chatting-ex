@@ -1,5 +1,6 @@
 import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { JwtService } from '@nestjs/jwt';
 import { comparePassword, hashPassword } from '../../utils/crypto.util';
 import { SigninDto } from './dto/signin.dto';
 import { SignupDto } from './dto/signup.dto';
@@ -7,35 +8,43 @@ import { UserRepository } from './user.repository';
 
 @Injectable()
 export class AuthService {
-  constructor(@InjectRepository(UserRepository) private readonly userRepository: UserRepository) {}
+  constructor(
+    @InjectRepository(UserRepository) private readonly userRepository: UserRepository,
+    private jwtService: JwtService,
+  ) {}
 
-  public async signup(signupDto: SignupDto): Promise<void> {
+  public async signup(signupDto: SignupDto) {
     const { email, username, password } = signupDto;
-    this.signupValidation(email, username);
+    const err = await this.signupValidation(email, username);
+    if (err) throw new ConflictException(err);
+
     const hashedPassword = await hashPassword(password);
-    const user = this.userRepository.create({ email, username, password: hashedPassword });
-    await this.userRepository.save(user);
+    await this.userRepository.createUser({ email, username, password: hashedPassword });
   }
 
-  private async signupValidation(email: string, username: string) {
+  private async signupValidation(email: string, username: string): Promise<string | undefined> {
     const isExistEmail = await this.userRepository.findOne({ where: { email } });
-    if (isExistEmail) throw new ConflictException('auth.eixist-email');
+    if (isExistEmail) return 'auth.eixist-email';
     const isExistUserName = await this.userRepository.findOne({ where: { username } });
-    if (isExistUserName) throw new ConflictException('auth.exist-username');
+    if (isExistUserName) return 'auth.exist-username';
   }
 
   public async signin(signinDto: SigninDto) {
     const { email, password } = signinDto;
-    const user = await this.userRepository.findOne({ select: ['password'], where: { email } });
+    const user = await this.userRepository.findOne({ where: { email } });
     if (!user) throw new ConflictException('auth.not-found-user');
-    await this.passwordValidation(password, user.password);
-    // TODO: 토큰
+    const err = await this.passwordValidation(password, user.password);
+    if (err) throw new UnauthorizedException(err);
+
+    const { id, username } = user;
+    const payload = { id, email, username };
+    const accessToken = this.jwtService.sign(payload);
+    const refreshToken = this.jwtService.sign(payload);
+    return { accessToken, refreshToken };
   }
 
   private async passwordValidation(reqPassword: string, dbPassword: string) {
     const compare = await comparePassword(reqPassword, dbPassword);
-    // TODO: 로그 제거
-    console.log('password compare', compare);
-    if (!compare) throw new UnauthorizedException('auth.password-invalid');
+    if (!compare) return 'auth.password-invalid';
   }
 }
