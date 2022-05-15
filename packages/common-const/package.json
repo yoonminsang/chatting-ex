@@ -1,0 +1,7 @@
+{
+  "name": "@common/const",
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "build": "tsc"
+  }
+}
