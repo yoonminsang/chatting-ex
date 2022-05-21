@@ -1,7 +1,8 @@
 import { USER_ENTITY } from '@common/const';
+import { ISignupDto } from '@common/types';
 import { IsString, Matches, MaxLength, MinLength, IsNotEmpty, IsEmail } from 'class-validator';
 
-export class SignupDto {
+export class SignupDto implements ISignupDto {
   @IsEmail()
   @IsNotEmpty()
   email!: string;
