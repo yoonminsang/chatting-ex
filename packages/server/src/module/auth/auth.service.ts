@@ -1,7 +1,7 @@
 import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { JwtService } from '@nestjs/jwt';
-import { comparePassword, hashPassword } from '../../utils/crypto.util';
+import { comparePassword, hashPassword } from './auth.util';
 import { SigninDto } from './dto/signin.dto';
 import { SignupDto } from './dto/signup.dto';
 import { UserRepository } from './user.repository';
