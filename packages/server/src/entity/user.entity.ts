@@ -1,6 +1,6 @@
 import { Column, Entity } from 'typeorm';
 import { USER_ENTITY } from '@common/const';
-import { AutoUUIdEntity } from '../common/entity/auto-uuid.entity';
+import { AutoUUIdEntity } from './abstract/auto-uuid.entity';
 
 @Entity()
 export class User extends AutoUUIdEntity {
