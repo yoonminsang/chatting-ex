@@ -25,6 +25,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/common-const"\
       },\
       {\
+        "name": "@common/types",\
+        "reference": "workspace:packages/common-types"\
+      },\
+      {\
         "name": "server",\
         "reference": "workspace:packages/server"\
       }\
@@ -33,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["@common/const", ["workspace:packages/common-const"]],\
+      ["@common/types", ["workspace:packages/common-types"]],\
       ["chatting-ex", ["workspace:."]],\
       ["server", ["workspace:packages/server"]]\
     ],\
@@ -921,6 +926,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/common-const/",\
           "packageDependencies": [\
             ["@common/const", "workspace:packages/common-const"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@common/types", [\
+        ["workspace:packages/common-types", {\
+          "packageLocation": "./packages/common-types/",\
+          "packageDependencies": [\
+            ["@common/types", "workspace:packages/common-types"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -8883,6 +8897,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["server", "workspace:packages/server"],\
             ["@common/const", "workspace:packages/common-const"],\
+            ["@common/types", "workspace:packages/common-types"],\
             ["@nestjs/cli", "npm:8.2.5"],\
             ["@nestjs/common", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:8.4.5"],\
             ["@nestjs/config", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:2.0.0"],\

@@ -477,6 +477,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@common/types@workspace:*, @common/types@workspace:packages/common-types":
+  version: 0.0.0-use.local
+  resolution: "@common/types@workspace:packages/common-types"
+  languageName: unknown
+  linkType: soft
+
 "@cspotcode/source-map-consumer@npm:0.8.0":
   version: 0.8.0
   resolution: "@cspotcode/source-map-consumer@npm:0.8.0"
@@ -7072,6 +7078,7 @@ __metadata:
   resolution: "server@workspace:packages/server"
   dependencies:
     "@common/const": "workspace:*"
+    "@common/types": "workspace:*"
     "@nestjs/cli": ^8.0.0
     "@nestjs/common": ^8.0.0
     "@nestjs/config": ^2.0.0
