@@ -1,5 +1,4 @@
-import { USER_ENTITY } from '@common/const';
-import { ISignupDto } from '@common/types';
+import { USER_ENTITY, ISignupDto } from '@monorepo/common';
 import { IsString, Matches, MaxLength, MinLength, IsNotEmpty, IsEmail } from 'class-validator';
 
 export class SignupDto implements ISignupDto {

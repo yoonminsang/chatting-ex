@@ -1,5 +1,5 @@
 import { Column, Entity } from 'typeorm';
-import { USER_ENTITY } from '@common/const';
+import { USER_ENTITY } from '@monorepo/common';
 import { AutoUUIdEntity } from './abstract/auto-uuid.entity';
 
 @Entity()
