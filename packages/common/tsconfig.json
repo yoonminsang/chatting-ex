@@ -5,7 +5,10 @@
     "composite": true,
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["**/*"]
 }
