@@ -9,8 +9,7 @@
     "lint:fix": "yarn server lint:fix",
     "client": "yarn workspace client",
     "server": "yarn workspace server",
-    "common-const": "yarn workspace @common/const",
-    "common-types": "yarn workspace @common/types",
+    "common": "yarn workspace @monorepo/common",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
   },

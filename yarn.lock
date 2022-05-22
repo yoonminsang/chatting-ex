@@ -471,18 +471,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@common/const@workspace:*, @common/const@workspace:packages/common-const":
-  version: 0.0.0-use.local
-  resolution: "@common/const@workspace:packages/common-const"
-  languageName: unknown
-  linkType: soft
-
-"@common/types@workspace:*, @common/types@workspace:packages/common-types":
-  version: 0.0.0-use.local
-  resolution: "@common/types@workspace:packages/common-types"
-  languageName: unknown
-  linkType: soft
-
 "@cspotcode/source-map-consumer@npm:0.8.0":
   version: 0.8.0
   resolution: "@cspotcode/source-map-consumer@npm:0.8.0"
@@ -831,6 +819,12 @@ __metadata:
   checksum: e38254e830472248ca10a6ed1ae75af5e8514f0680245a5e7b53bc3c030fd8691d4d3115d80595b45d3badead68269769ed47ecbbdd67db1343a11f05700e75a
   languageName: node
   linkType: hard
+
+"@monorepo/common@workspace:*, @monorepo/common@workspace:packages/common":
+  version: 0.0.0-use.local
+  resolution: "@monorepo/common@workspace:packages/common"
+  languageName: unknown
+  linkType: soft
 
 "@nestjs/cli@npm:^8.0.0":
   version: 8.2.5
@@ -7077,8 +7071,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "server@workspace:packages/server"
   dependencies:
-    "@common/const": "workspace:*"
-    "@common/types": "workspace:*"
+    "@monorepo/common": "workspace:*"
     "@nestjs/cli": ^8.0.0
     "@nestjs/common": ^8.0.0
     "@nestjs/config": ^2.0.0

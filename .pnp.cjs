@@ -21,12 +21,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."\
       },\
       {\
-        "name": "@common/const",\
-        "reference": "workspace:packages/common-const"\
-      },\
-      {\
-        "name": "@common/types",\
-        "reference": "workspace:packages/common-types"\
+        "name": "@monorepo/common",\
+        "reference": "workspace:packages/common"\
       },\
       {\
         "name": "server",\
@@ -36,8 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["@common/const", ["workspace:packages/common-const"]],\
-      ["@common/types", ["workspace:packages/common-types"]],\
+      ["@monorepo/common", ["workspace:packages/common"]],\
       ["chatting-ex", ["workspace:."]],\
       ["server", ["workspace:packages/server"]]\
     ],\
@@ -921,24 +916,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@common/const", [\
-        ["workspace:packages/common-const", {\
-          "packageLocation": "./packages/common-const/",\
-          "packageDependencies": [\
-            ["@common/const", "workspace:packages/common-const"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
-      ["@common/types", [\
-        ["workspace:packages/common-types", {\
-          "packageLocation": "./packages/common-types/",\
-          "packageDependencies": [\
-            ["@common/types", "workspace:packages/common-types"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
       ["@cspotcode/source-map-consumer", [\
         ["npm:0.8.0", {\
           "packageLocation": "./.yarn/cache/@cspotcode-source-map-consumer-npm-0.8.0-1f37e9e72b-c0c16ca3d2.zip/node_modules/@cspotcode/source-map-consumer/",\
@@ -1336,6 +1313,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jridgewell/sourcemap-codec", "npm:1.4.13"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@monorepo/common", [\
+        ["workspace:packages/common", {\
+          "packageLocation": "./packages/common/",\
+          "packageDependencies": [\
+            ["@monorepo/common", "workspace:packages/common"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["@nestjs/cli", [\
@@ -8896,8 +8882,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/server/",\
           "packageDependencies": [\
             ["server", "workspace:packages/server"],\
-            ["@common/const", "workspace:packages/common-const"],\
-            ["@common/types", "workspace:packages/common-types"],\
+            ["@monorepo/common", "workspace:packages/common"],\
             ["@nestjs/cli", "npm:8.2.5"],\
             ["@nestjs/common", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:8.4.5"],\
             ["@nestjs/config", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:2.0.0"],\
